@@ -1,0 +1,45 @@
+#include <bits/stdc++.h>
+#define ll long long
+using namespace std;
+bool isSquare(ll k){
+	ll tmp = sqrt(k);
+	if(tmp * tmp == k) return true;
+	else return false;
+}
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    ll t; cin >> t; ll k; vector<ll> ans;
+    for(ll i = 1; i <= t; i++){
+    	cin >> k;
+    	for(ll j = 1; j * j <= k; j++){
+    		if(k % j == 0){
+    			if((j % 2 == 0 and k/j % 2 == 0) or (j % 2 == 1 and k/j % 2 == 1)){
+    				if(j != k/j){
+    				    ll b = (k/j - j) / 2;
+    				    ans.push_back(b * b);
+    				    ans.push_back(0 - k - b * b);
+    				}
+				}
+			}
+		}
+		for(ll j = 1; j * j <= k; j++){
+			ll tmp = k - j * j;
+			ll halftmp = sqrt(tmp);
+			if((halftmp * halftmp == tmp) and (tmp != 0) and ((k - j * j) != (j * j))) ans.push_back(0 - j * j);
+		}
+		if(k % 2 == 0){
+			k = k / 2;
+			ll tmp = sqrt(k);
+			if(tmp * tmp == k) ans.push_back(0 - k);
+		}
+		sort(ans.begin(), ans.end());
+		cout << ans.size() << endl;
+		for(ll j = 0 ; j < ans.size(); j++){
+			cout<<ans[j]<<" ";
+		}
+		cout << endl;
+		ans.clear();
+	}
+    return 0;
+}
