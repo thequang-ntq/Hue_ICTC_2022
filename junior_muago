@@ -1,0 +1,25 @@
+#include <bits/stdc++.h>
+using namespace std;
+long long a[7];
+int main()
+{
+    long long n;
+    cin>>n;
+    while(n--)
+    {
+        for(int i=0;i<7;i++)
+        {
+            cin>>a[i];
+        }
+        sort(a,a+7);
+            if(a[0]+a[1]==a[2])
+            {
+                cout<<a[0]<<" "<<a[1]<<" "<<a[3]<<endl;
+                continue;
+            }
+            else
+            {
+                cout<<a[0]<<" "<<a[1]<<" "<<a[2]<<endl;
+            }
+    }
+    }
