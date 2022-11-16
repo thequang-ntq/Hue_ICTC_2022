@@ -1,0 +1,29 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie();
+    //freopen("input.inp" , "r" , stdin);
+    int n;
+    cin >> n;
+    while(n--)
+    {
+        ll a,b;
+        cin >> a >> b;
+        ll ans;
+        ll q = (ll)b/100-(ll)a/100; // tong cac nam the ki
+        if( a%100==0)
+            q++;
+        ll w = (ll)b/400 - (ll)a/400; //tong cac nam the ki co nhuan
+        if( a%400==0)
+            w++;
+        ll sum = (ll)b/4-(ll)a/4; // tong cac nam nhuan
+        if( a%4==0)
+            sum++;
+        q = q - w;
+        ans = sum-q;
+        cout << ans << endl;
+    }
+}
