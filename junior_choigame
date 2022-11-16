@@ -1,0 +1,42 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+typedef long long ll;
+
+ll n;
+ll a[100005], b[100005];	
+ll res1 = 0;
+ll res2 = 0;
+ll maa = 0;
+ll mab = 0;
+ll nea, neb;
+int main(){
+	ios_base::sync_with_stdio(false);
+	cin.tie(NULL);
+	
+	cin>>n;
+	for(int  i = 1; i <= n; i++){
+		cin>>a[i]>>b[i];
+		if(maa < a[i]){
+			nea = i;
+			maa = a[i];
+		}
+		if(mab < b[i]){
+			neb = i;
+			mab = b[i];
+		}
+	}
+	for(int i = 1; i <= n; i++){
+		if(i != nea){
+			res1 = max(res1, maa + b[i]);
+		}
+	}
+	for(int i = 1; i <= n; i++){
+		if(i != neb){
+			res2 = max(res2, mab + a[i]);
+		}
+	}
+	cout<<max(res1, res2);
+	
+}
+
