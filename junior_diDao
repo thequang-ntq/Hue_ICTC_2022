@@ -1,0 +1,24 @@
+#include<bits/stdc++.h>
+using namespace std;
+using ll=long long;
+ll n,i,dem,MAX,MIN,vt,vt2,c,b,a[100];
+string s;
+void kt(long long n){
+    a[1]=1;
+    a[2]=2;
+    a[3]=4;
+     for(i=4;i<=n;i++){
+         a[i]+=a[i-1]+a[i-2]+a[i-3];
+     }
+}
+int main(){
+    //freopen("SNT.INP","r",stdin);
+    //freopen("SNT.OUT","w",stdout);
+    kt(60);
+    cin>>n;
+    a[0]=1;
+    for(i=1;i<=n;i++){
+        cin >> b >>c;
+        cout << a[c-b] << endl;
+    }
+}
